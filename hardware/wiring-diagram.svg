@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1050" viewBox="0 0 1500 1050">
+<defs>
+  <style>
+    text{font-family:Inter,Arial,sans-serif;fill:#172033}
+    .title{font-size:34px;font-weight:800}.sub{font-size:16px;fill:#536078}
+    .head{font-size:20px;font-weight:750}.body{font-size:15px}.small{font-size:13px;fill:#536078}
+    .pin{font-size:14px;font-weight:700}.card{stroke-width:2}
+    .wire{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  </style>
+</defs>
+<rect width="1500" height="1050" fill="#f4f7fb"/>
+<text x="750" y="55" text-anchor="middle" class="title">MULTI-MODE ROBOT CAR — WIRING REFERENCE</text>
+<text x="750" y="84" text-anchor="middle" class="sub">Arduino UNO · L298N · HC-05 · HC-SR04 + SG90 · Dual line sensors · IR receiver</text>
+
+<!-- Arduino -->
+<rect x="555" y="210" width="390" height="540" rx="22" fill="#183b63" stroke="#102b49" class="card"/>
+<text x="750" y="252" text-anchor="middle" font-size="25" font-weight="800" fill="#fff">ARDUINO UNO</text>
+<text x="750" y="278" text-anchor="middle" font-size="14" fill="#d7e7fa">Controller / common signal reference</text>
+<line x1="575" y1="298" x2="925" y2="298" stroke="#6c91b7" stroke-width="1"/>
+<text x="585" y="334" font-size="16" font-weight="700" fill="#fff">ANALOG INPUTS</text>
+<g font-size="15" fill="#fff">
+ <text x="590" y="368" fill="#fff">A0</text><text x="655" y="368" fill="#dcecff">Right line sensor OUT</text>
+ <text x="590" y="402" fill="#fff">A1</text><text x="655" y="402" fill="#dcecff">Left line sensor OUT</text>
+ <text x="590" y="436" fill="#fff">A2</text><text x="655" y="436" fill="#dcecff">HC-SR04 ECHO</text>
+ <text x="590" y="470" fill="#fff">A3</text><text x="655" y="470" fill="#dcecff">HC-SR04 TRIG</text>
+ <text x="590" y="504" fill="#fff">A4</text><text x="655" y="504" fill="#dcecff">SG90 signal</text>
+ <text x="590" y="538" fill="#fff">A5</text><text x="655" y="538" fill="#dcecff">IR receiver OUT</text>
+</g>
+<line x1="575" y1="560" x2="925" y2="560" stroke="#6c91b7" stroke-width="1"/>
+<text x="585" y="592" font-size="16" font-weight="700" fill="#fff">MOTOR DRIVER CONTROL</text>
+<g font-size="15">
+ <text x="590" y="624" fill="#fff">D5</text><text x="655" y="624" fill="#dcecff">L298N ENB (PWM)</text>
+ <text x="590" y="652" fill="#fff">D6</text><text x="655" y="652" fill="#dcecff">L298N IN4</text>
+ <text x="590" y="680" fill="#fff">D7</text><text x="655" y="680" fill="#dcecff">L298N IN3</text>
+ <text x="590" y="708" fill="#fff">D8</text><text x="655" y="708" fill="#dcecff">L298N IN2</text>
+ <text x="590" y="736" fill="#fff">D9</text><text x="655" y="736" fill="#dcecff">L298N IN1</text>
+ <text x="590" y="764" fill="#fff">D10</text><text x="655" y="764" fill="#dcecff">L298N ENA (PWM)</text>
+</g>
+
+<!-- Left sensor cards -->
+<rect x="55" y="160" width="390" height="115" rx="15" fill="#e8f5ed" stroke="#32965c" class="card"/>
+<text x="80" y="195" class="head">2 × IR LINE SENSORS</text>
+<text x="80" y="225" class="body">Right OUT → A0  ·  Left OUT → A1</text>
+<text x="80" y="251" class="small">Both modules: VCC → regulated 5V, GND → common GND</text>
+<path d="M445 215 H500 V408 H555" class="wire" stroke="#32965c"/>
+<path d="M445 245 H520 V442 H555" class="wire" stroke="#63a87c"/>
+
+<rect x="55" y="335" width="390" height="130" rx="15" fill="#f2eafa" stroke="#8956b4" class="card"/>
+<text x="80" y="370" class="head">HC-SR04 ULTRASONIC</text>
+<text x="80" y="401" class="body">ECHO → A2  ·  TRIG → A3</text>
+<text x="80" y="429" class="small">VCC → regulated 5V, GND → common GND</text>
+<path d="M445 400 H490 V476 H555" class="wire" stroke="#8956b4"/>
+<path d="M445 430 H510 V510 H555" class="wire" stroke="#a17ac5"/>
+
+<rect x="55" y="525" width="390" height="105" rx="15" fill="#fff3e5" stroke="#d68b31" class="card"/>
+<text x="80" y="560" class="head">SG90 SERVO</text>
+<text x="80" y="590" class="body">Signal → A4  ·  Red → 5V  ·  Brown/Black → GND</text>
+<text x="80" y="614" class="small">Use a suitable 5V supply if the servo causes resets.</text>
+<path d="M445 575 H530 V544 H555" class="wire" stroke="#d68b31"/>
+
+<rect x="55" y="690" width="390" height="105" rx="15" fill="#f1f3f7" stroke="#77839a" class="card"/>
+<text x="80" y="725" class="head">IR REMOTE RECEIVER</text>
+<text x="80" y="755" class="body">OUT → A5  ·  VCC → 5V  ·  GND → common GND</text>
+<path d="M445 740 H535 V578 H555" class="wire" stroke="#77839a"/>
+
+<!-- Bluetooth -->
+<rect x="1060" y="150" width="385" height="165" rx="15" fill="#e6f1fc" stroke="#397db8" class="card"/>
+<text x="1085" y="188" class="head">HC-05 BLUETOOTH</text>
+<text x="1085" y="222" class="body">TXD → D2 (Arduino RX)</text>
+<text x="1085" y="251" class="body">RXD ← D3 (Arduino TX)*</text>
+<text x="1085" y="282" class="small">VCC → 5V breakout input · GND → common GND</text>
+<path d="M945 288 H1010 V222 H1060" class="wire" stroke="#397db8"/>
+<path d="M945 310 H1030 V251 H1060" class="wire" stroke="#6a9bc9"/>
+
+<!-- Motor driver -->
+<rect x="1060" y="390" width="385" height="285" rx="15" fill="#fdebed" stroke="#c44c56" class="card"/>
+<text x="1085" y="430" class="head">L298N MOTOR DRIVER</text>
+<g class="body">
+ <text x="1085" y="470">D5  → ENB (PWM)</text>
+ <text x="1085" y="500">D6  → IN4</text>
+ <text x="1085" y="530">D7  → IN3</text>
+ <text x="1085" y="560">D8  → IN2</text>
+ <text x="1085" y="590">D9  → IN1</text>
+ <text x="1085" y="620">D10 → ENA (PWM)</text>
+</g>
+<path d="M945 624 H1000 V470 H1060" class="wire" stroke="#c44c56"/>
+<path d="M945 652 H1015 V500 H1060" class="wire" stroke="#c44c56"/>
+<path d="M945 680 H1030 V530 H1060" class="wire" stroke="#c44c56"/>
+<path d="M945 708 H1040 V560 H1060" class="wire" stroke="#c44c56"/>
+<path d="M945 736 H1050 V590 H1060" class="wire" stroke="#c44c56"/>
+<path d="M945 764 H1055 V620 H1060" class="wire" stroke="#c44c56"/>
+
+<!-- Motor/power section -->
+<rect x="555" y="790" width="890" height="190" rx="18" fill="#fff" stroke="#9aa6b8" stroke-width="2"/>
+<text x="585" y="830" class="head">MOTOR OUTPUTS &amp; POWER</text>
+<rect x="590" y="850" width="245" height="90" rx="12" fill="#fff8df" stroke="#c69b25" stroke-width="2"/>
+<text x="712" y="882" text-anchor="middle" class="pin">OUT1 / OUT2</text>
+<text x="712" y="909" text-anchor="middle" class="body">Motor group A (verify side)*</text>
+<rect x="855" y="850" width="245" height="90" rx="12" fill="#fff8df" stroke="#c69b25" stroke-width="2"/>
+<text x="977" y="882" text-anchor="middle" class="pin">OUT3 / OUT4</text>
+<text x="977" y="909" text-anchor="middle" class="body">Motor group B (verify side)*</text>
+<rect x="1120" y="850" width="290" height="90" rx="12" fill="#edf4ff" stroke="#397db8" stroke-width="2"/>
+<text x="1265" y="882" text-anchor="middle" class="pin">BATTERY → L298N +12V</text>
+<text x="1265" y="909" text-anchor="middle" class="body">Battery negative → GND</text>
+<text x="585" y="963" class="small">*Check motor-side grouping and polarity on your actual chassis. Do not connect motors directly to Arduino pins.</text>
+
+<!-- Notes -->
+<rect x="55" y="840" width="445" height="140" rx="15" fill="#fff8e8" stroke="#d7a33a" stroke-width="2"/>
+<text x="80" y="875" class="head">IMPORTANT POWER / SAFETY NOTES</text>
+<text x="80" y="906" class="small">• All grounds must be connected together.</text>
+<text x="80" y="930" class="small">• Use a regulated 5V rail for UNO and sensors.</text>
+<text x="80" y="954" class="small">• *Fit a divider on D3 → HC-05 RX (e.g. 1k/2k).</text>
+<text x="80" y="974" class="small">• Remove ENA/ENB jumpers when using D10/D5 PWM.</text>
+
+<text x="750" y="1025" text-anchor="middle" class="small">Reference derived from the supplied Arduino sketch and original wiring notes. Verify every connection before powering the robot.</text>
+</svg>
